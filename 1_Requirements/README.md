@@ -1,6 +1,6 @@
 # Requirements
 
-## Basic function
+## Basic Function
 The wiper serves to clean the windshield of the car at the front and rear, although not all cars have wipers on the rear side. Wiper works by removing oil, dust, rainwater, and dirt that get stuck to the windshield. When the wiper switch is in the off position, the wiper will not function. When the wiper switch is in low-speed mode, the wiper will work at low speed. Accordingly, when the wiper switch is in high-speed mode, the wiper will work at a fairly high speed.
 
 
@@ -20,19 +20,19 @@ Step 5; When the blue button is pressed again, the LED turns off.
 
 ## 4W & H  (WHO,WHAT,WHEN,WHERE,HOW)
 
-# * WHAT: 
+# * WHAT
     Wiper Control System
     
-# * WHERE:
+# * WHERE
     Vehicles
     
-# * WHEN:
+# * WHEN
     Wiper works for removing oil, dust, rainwater, and dirt that gets stuck to the windshield.
     
-# * HOW:
+# * HOW
     By pressing the button, the wiper turns on and off, changing the speed of the wiper. 
     
-# * WHO:
+# * WHO
     Drivers
     
 
@@ -75,6 +75,6 @@ Step 5; When the blue button is pressed again, the LED turns off.
 | `LR01`|	`By pressing the button for 2 seconds, RED LED turns ON `                  |`HR01`                |	`IMPLEMENTED`              |
 |`LR02`	|  `By pressing the button again for 1 seconds, Orange, Green and Blue turns ON`|     ` HR02`	        |`IMPLEMENTED`             |
 |`LR03` |	`By pressing the button again for 1 seconds, Speed of LED changed          `|  `HR04`              |	`IMPLEMENTED`          |
-|`LR04`|	`By pressing the button again for 2 seconds, All LED turns OFF  `	        |       `HR02`          |`IMPLEMENTED`             |
+|`LR04`|	`By pressing the button again for 2 seconds, All LED turns OFF  `	        |       `HR05`          |`IMPLEMENTED`             |
 
  

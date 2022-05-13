@@ -18,20 +18,25 @@ Step 4: When the blue button is pressed again for 1 second, the speed of the LED
 
 Step 5; When the blue button is pressed again, the LED turns off.
 
-## ## 4W & H  (WHO,WHAT,WHEN,WHERE,HOW)
+## 4W & H  (WHO,WHAT,WHEN,WHERE,HOW)
+
 # * WHAT: 
     Wiper Control System
+    
 # * WHERE:
     Vehicles
+    
 # * WHEN:
     Wiper works for removing oil, dust, rainwater, and dirt that gets stuck to the windshield.
+    
 # * HOW:
     By pressing the button, the wiper turns on and off, changing the speed of the wiper. 
+    
 # * WHO:
     Drivers
     
 
-## * SWOT(STRENGTH,WEAKNESS,OPPORTUNITY,THREATS)
+## SWOT(STRENGTH,WEAKNESS,OPPORTUNITY,THREATS)
 
 # * Strength
     1. Safety

@@ -10,7 +10,7 @@ I am using four different coloured LEDs instead of wipers. 
 
 Step 1: When the blue button is pressed ONCE for 2 seconds, the vehicle will be in ACC mode and the RED LED will start blinking constantly.
 
-Step 2: When the blue button is pressed again for 1 second, the vehicle will be in ignition mode and the orange, blue, and green LEDs will start blinking at 1 Hz frequency.
+Step 2: When the blue button is pressed again for 1 second, the vehicle will be in ignition mode and the orange, blue, and green LEDs will start blinking at 1 Hz               frequency.
 
 Step 3: When the blue button is pressed again for 1 second, the speed of the LED changes from 1 Hz to 4 HZ.
 

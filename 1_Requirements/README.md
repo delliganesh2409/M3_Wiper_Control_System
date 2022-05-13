@@ -52,3 +52,29 @@ Step 5; When the blue button is pressed again, the LED turns off.
  # * Threats
      1. failer in wiper motor
      2. Damanged wiper blades
+     
+ # Requirements 
+   1. High level requirements
+   2. Low level requirements
+   
+ ## High Level Requirements
+
+| ID        |  Description                                       |  Status         |
+| :-------- | :--------------------------------                  | :-------------- |
+|`HR01`	    |`Vehicle is in ACC mode `                           |`IMPLEMENTED`  |
+|  `HR02`   | `Vehicle is in Ignition mode`                      | `IMPLEMENTED `  |   
+|`HR03`     | `Wiper turned ON`                                  |`IMPLEMENTED`    |
+|`HR04`	    |`Wiper Speed can be changed at three different level`|`IMPLEMENTED`    |
+|`HR05`	    |`Wiper turned OFF`                                   |`IMPLEMENTED`    |
+
+
+## low level Requriments  
+
+|  ID   |  Description                                                                 |  HLR ID              | Status (Implemented/Future)|           
+| :-----| :----------------------------------------------------                        | :--------------------| :-------------------       |
+| `LR01`|	`By pressing the button for 2 seconds, RED LED turns ON `                  |`HR01`                |	`IMPLEMENTED`              |
+|`LR02`	|  `By pressing the button again for 1 seconds, Orange, Green and Blue turns ON`|     ` HR02`	        |`IMPLEMENTED`             |
+|`LR03` |	`By pressing the button again for 1 seconds, Speed of LED changed          `|  `HR04`              |	`IMPLEMENTED`          |
+|`LR04`|	`By pressing the button again for 2 seconds, All LED turns OFF  `	        |       `HR02`          |`IMPLEMENTED`             |
+
+ 

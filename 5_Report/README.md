@@ -1,6 +1,6 @@
-## Abstract
+# Abstract
 
-# Wiper Contol System 
+## Wiper Contol System 
 Windshield wipers keep the windshield of a vehicle clear from rain water, snow, dust and road spray. The first windshield wipers were operated manually by moving a lever inside the car. Later wiper designs were powered by the engine's manifold vacuum. Virtually all wipers today employ an electric motor coupled with a linkage mechanism and are actuated by a knob beside the steering wheel. The wiper blade speed can be adjusted by the driver.Modern windshield wipers may also be run intermittently. The intermittent wiper option cycles the wipers on and off every few seconds rather than running constantly. Intermittent control first appeared in automobiles in the 1970's. The original intermittent wipers were controlled by a constant power source that was routed through a series of switches. Now, virtually all automotive wipers are controlled by a microprocessor. In this project, I explain about how wiper system works based on STM32F4, an ARM based Microcontroller with the help of STM32CUBE IDE software.
 
 
@@ -132,3 +132,23 @@ Step 5; When the blue button is pressed again, the LED turns off.
 |`LR02`	|  `By pressing the button again for 1 seconds, Orange, Green and Blue turns ON`|     ` HR02`	        |`PASSED `       |   `SUCCESS`      |
 |`LR03` |	`By pressing the button again for 1 seconds, Speed of LED changed          `  |  `HR04`              |`PASSED `       |   `SUCCESS`      |	
 |`LR04`|	`By pressing the button again for 2 seconds, All LED turns OFF  `	           |       `HR05`          |`PASSED `       |   `SUCCESS`      |
+
+
+# OUTPUT
+
+##  1. When button pressed for 2 for seconds
+![Screenshot 2022-05-14 223405](https://user-images.githubusercontent.com/101784923/168442137-cab3bf24-2510-46b3-a947-48a8eb36c302.png)
+
+##  2. When button pressed for 1 second
+
+![Screenshot 2022-05-14 223548](https://user-images.githubusercontent.com/101784923/168442206-6d301827-0cfb-403b-a007-c4ac1077e2c2.png)
+
+##  3. When button pressed again for 1 second [wiper speed changed to 4Hz]
+![Screenshot 2022-05-14 223658](https://user-images.githubusercontent.com/101784923/168442251-d2c2fe00-dc0c-4f6d-8979-ffc95047c2ac.png)
+
+## 4. When button pressed again for 1 second [wiper speed changed to 8 Hz]
+![Screenshot 2022-05-14 224037](https://user-images.githubusercontent.com/101784923/168442345-3dfc994e-a9da-4163-b084-39ecca141b3c.png)
+
+## 5. When button pressed again for 2 second [wiper turns off]
+![Screenshot 2022-05-14 224200](https://user-images.githubusercontent.com/101784923/168442415-5dbf8a91-da67-43bf-a320-d87bc036d887.png)
+

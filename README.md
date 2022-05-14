@@ -4,7 +4,7 @@
 
 |cppcheck-action|Build CI Linux|
 |:--:|:--:|
-||
+|[![Cppcheck Analysis](https://github.com/delliganesh2409/M3_Wiper_Control_System/actions/workflows/c-cpp.yml/badge.svg)](https://github.com/delliganesh2409/M3_Wiper_Control_System/actions/workflows/c-cpp.yml)|
 
 
 

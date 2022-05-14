@@ -9,9 +9,11 @@
 
 ## High Level Test plan
 
-| ID        |  Description                                       | Expected output            |  
-| :-------- | :--------------------------------                  | :------------------------- | 
-| `1`       | `Dc motor`                                         | `Passed`                   |  
-|  `2`      | `potentiometer`                                    |   `Passed`                 |   
-|`3`        | `Oscope`                                           |	`Passed`	                |
 
+| ID        |  Description                                       |  Expected output|  Expected output|
+| :-------- | :--------------------------------                  | :-------------- | :-------------- |
+|`HR01`	    |`Vehicle is in ACC mode `                           |       `PASSED`  |  `SUCCESS`      |
+|  `HR02`   | `Vehicle is in Ignition mode`                      | `PASSED `       |   `SUCCESS`      |
+|`HR03`     | `Wiper turned ON`                                  |   `PASSED`      |   `SUCCESS`      |
+|`HR04`	    |`Wiper Speed can be changed at three different level`|    `PASSED`    |   `SUCCESS`      |
+|`HR05`	    |`Wiper turned OFF`                                   |    `PASSED`    |   `SUCCESS`      |

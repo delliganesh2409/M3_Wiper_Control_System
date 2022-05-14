@@ -171,3 +171,8 @@ Step 5; When the blue button is pressed again, the LED turns off.
 
 ## 5. When button pressed again for 2 second [wiper turns off]
 ![Screenshot 2022-05-14 224200](https://user-images.githubusercontent.com/101784923/168442415-5dbf8a91-da67-43bf-a320-d87bc036d887.png)
+
+
+# Output video
+https://user-images.githubusercontent.com/101784923/168447030-152cebcc-554e-4ec7-b1c6-ed93b981f762.mp4
+

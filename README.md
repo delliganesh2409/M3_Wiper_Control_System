@@ -2,6 +2,21 @@
 ![windshield_wiper_transmission_operation](https://user-images.githubusercontent.com/101784923/168442697-a7cfcf02-454e-408a-a317-06cbbf1f7508.gif)
 
 
+
+## Badges
+
+|cppcheck-action|Build CI Linux|Build CI - Windows|Analysis|Git Inspector|
+|:--:|:--:|:--:|:--:|:--:|
+|[![Cppcheck Analysis](https://github.com/delliganesh2409/M3_Wiper_Control_System/actions/workflows/c-cpp.yml/badge.svg)](https://github.com/delliganesh2409/M3_Wiper_Control_System/actions/workflows/c-cpp.yml)|[![Build-Linux](https://github.com/delliganesh2409/M3_Wiper_Control_System/actions/workflows/build%20on%20linux.yml/badge.svg)](https://github.com/delliganesh2409/M3_Wiper_Control_System/actions/workflows/build%20on%20linux.yml)|[![Build CI - Windows](https://github.com/delliganesh2409/M3_Wiper_Control_System/actions/workflows/Build%20on%20windows.yml/badge.svg)](https://github.com/delliganesh2409/M3_Wiper_Control_System/actions/workflows/Build%20on%20windows.yml)|[![Analysis](https://github.com/delliganesh2409/M3_Wiper_Control_System/actions/workflows/analysis.yml/badge.svg)](https://github.com/delliganesh2409/M3_Wiper_Control_System/actions/workflows/analysis.yml)|[![Contribution Check - Git Inspector](https://github.com/delliganesh2409/M3_Wiper_Control_System/actions/workflows/gitinspector.yml/badge.svg)](https://github.com/delliganesh2409/M3_Wiper_Control_System/actions/workflows/gitinspector.yml)|
+
+
+
+
+
+
+
+
+
 # Abstract
 
 ## Wiper Contol System 

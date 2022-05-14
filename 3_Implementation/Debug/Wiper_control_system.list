@@ -29,23 +29,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  12 .ARM.attributes 00000030  00000000  00000000  00010c10  2**0
                   CONTENTS, READONLY
- 13 .debug_info   00000bbf  00000000  00000000  00010c40  2**0
+ 13 .debug_info   00000bd2  00000000  00000000  00010c40  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_abbrev 000002fe  00000000  00000000  000117ff  2**0
+ 14 .debug_abbrev 00000334  00000000  00000000  00011812  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_aranges 00000100  00000000  00000000  00011b00  2**3
+ 15 .debug_aranges 00000100  00000000  00000000  00011b48  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_ranges 000000d8  00000000  00000000  00011c00  2**3
+ 16 .debug_ranges 000000d8  00000000  00000000  00011c48  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_macro  000024b3  00000000  00000000  00011cd8  2**0
+ 17 .debug_macro  000024b7  00000000  00000000  00011d20  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_line   0000115e  00000000  00000000  0001418b  2**0
+ 18 .debug_line   00001169  00000000  00000000  000141d7  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    00009cdb  00000000  00000000  000152e9  2**0
+ 19 .debug_str    00009cdb  00000000  00000000  00015340  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .comment      00000050  00000000  00000000  0001efc4  2**0
+ 20 .comment      00000050  00000000  00000000  0001f01b  2**0
                   CONTENTS, READONLY
- 21 .debug_frame  00000344  00000000  00000000  0001f014  2**2
+ 21 .debug_frame  00000344  00000000  00000000  0001f06c  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -820,731 +820,733 @@ void GPIO_ToggleOutputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber)
  80006c6:	f85d 7b04 	ldr.w	r7, [sp], #4
  80006ca:	4770      	bx	lr
 
-080006cc <main>:
+080006cc <wiper_on>:
+#include <stdint.h>
+#include <stdio.h>
+#define BTN_PRESSED ENABLE
+
+int wiper_on(void)
+{
+ 80006cc:	b580      	push	{r7, lr}
+ 80006ce:	af00      	add	r7, sp, #0
+	GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_15);
+ 80006d0:	210f      	movs	r1, #15
+ 80006d2:	4826      	ldr	r0, [pc, #152]	; (800076c <wiper_on+0xa0>)
+ 80006d4:	f7ff ffe5 	bl	80006a2 <GPIO_ToggleOutputPin>
+	delay();
+ 80006d8:	f000 f84c 	bl	8000774 <delay>
+	GPIO_WriteToOutputPin(GPIOD, GPIO_PIN_NO_15,0 );
+ 80006dc:	2200      	movs	r2, #0
+ 80006de:	210f      	movs	r1, #15
+ 80006e0:	4822      	ldr	r0, [pc, #136]	; (800076c <wiper_on+0xa0>)
+ 80006e2:	f7ff ffb9 	bl	8000658 <GPIO_WriteToOutputPin>
+
+	GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_12);
+ 80006e6:	210c      	movs	r1, #12
+ 80006e8:	4820      	ldr	r0, [pc, #128]	; (800076c <wiper_on+0xa0>)
+ 80006ea:	f7ff ffda 	bl	80006a2 <GPIO_ToggleOutputPin>
+	delay();
+ 80006ee:	f000 f841 	bl	8000774 <delay>
+	GPIO_WriteToOutputPin(GPIOD, GPIO_PIN_NO_12,0 );
+ 80006f2:	2200      	movs	r2, #0
+ 80006f4:	210c      	movs	r1, #12
+ 80006f6:	481d      	ldr	r0, [pc, #116]	; (800076c <wiper_on+0xa0>)
+ 80006f8:	f7ff ffae 	bl	8000658 <GPIO_WriteToOutputPin>
+
+	GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_13);
+ 80006fc:	210d      	movs	r1, #13
+ 80006fe:	481b      	ldr	r0, [pc, #108]	; (800076c <wiper_on+0xa0>)
+ 8000700:	f7ff ffcf 	bl	80006a2 <GPIO_ToggleOutputPin>
+	delay();
+ 8000704:	f000 f836 	bl	8000774 <delay>
+	GPIO_WriteToOutputPin(GPIOD, GPIO_PIN_NO_13,0 );
+ 8000708:	2200      	movs	r2, #0
+ 800070a:	210d      	movs	r1, #13
+ 800070c:	4817      	ldr	r0, [pc, #92]	; (800076c <wiper_on+0xa0>)
+ 800070e:	f7ff ffa3 	bl	8000658 <GPIO_WriteToOutputPin>
+
+
+	GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_13);
+ 8000712:	210d      	movs	r1, #13
+ 8000714:	4815      	ldr	r0, [pc, #84]	; (800076c <wiper_on+0xa0>)
+ 8000716:	f7ff ffc4 	bl	80006a2 <GPIO_ToggleOutputPin>
+	delay();
+ 800071a:	f000 f82b 	bl	8000774 <delay>
+	GPIO_WriteToOutputPin(GPIOD, GPIO_PIN_NO_13,0 );
+ 800071e:	2200      	movs	r2, #0
+ 8000720:	210d      	movs	r1, #13
+ 8000722:	4812      	ldr	r0, [pc, #72]	; (800076c <wiper_on+0xa0>)
+ 8000724:	f7ff ff98 	bl	8000658 <GPIO_WriteToOutputPin>
+
+	GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_12);
+ 8000728:	210c      	movs	r1, #12
+ 800072a:	4810      	ldr	r0, [pc, #64]	; (800076c <wiper_on+0xa0>)
+ 800072c:	f7ff ffb9 	bl	80006a2 <GPIO_ToggleOutputPin>
+	delay();
+ 8000730:	f000 f820 	bl	8000774 <delay>
+	GPIO_WriteToOutputPin(GPIOD, GPIO_PIN_NO_12,0 );
+ 8000734:	2200      	movs	r2, #0
+ 8000736:	210c      	movs	r1, #12
+ 8000738:	480c      	ldr	r0, [pc, #48]	; (800076c <wiper_on+0xa0>)
+ 800073a:	f7ff ff8d 	bl	8000658 <GPIO_WriteToOutputPin>
+
+	GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_15);
+ 800073e:	210f      	movs	r1, #15
+ 8000740:	480a      	ldr	r0, [pc, #40]	; (800076c <wiper_on+0xa0>)
+ 8000742:	f7ff ffae 	bl	80006a2 <GPIO_ToggleOutputPin>
+	delay();
+ 8000746:	f000 f815 	bl	8000774 <delay>
+	GPIO_WriteToOutputPin(GPIOD, GPIO_PIN_NO_15,0 );
+ 800074a:	2200      	movs	r2, #0
+ 800074c:	210f      	movs	r1, #15
+ 800074e:	4807      	ldr	r0, [pc, #28]	; (800076c <wiper_on+0xa0>)
+ 8000750:	f7ff ff82 	bl	8000658 <GPIO_WriteToOutputPin>
+
+	if (GPIO_ReadFromInputPin(GPIOA, GPIO_PIN_NO_0))
+ 8000754:	2100      	movs	r1, #0
+ 8000756:	4806      	ldr	r0, [pc, #24]	; (8000770 <wiper_on+0xa4>)
+ 8000758:	f7ff ff68 	bl	800062c <GPIO_ReadFromInputPin>
+ 800075c:	4603      	mov	r3, r0
+ 800075e:	2b00      	cmp	r3, #0
+ 8000760:	d001      	beq.n	8000766 <wiper_on+0x9a>
+			return 1;
+ 8000762:	2301      	movs	r3, #1
+ 8000764:	e000      	b.n	8000768 <wiper_on+0x9c>
+		else
+			return 0;
+ 8000766:	2300      	movs	r3, #0
+
+}
+ 8000768:	4618      	mov	r0, r3
+ 800076a:	bd80      	pop	{r7, pc}
+ 800076c:	40020c00 	.word	0x40020c00
+ 8000770:	40020000 	.word	0x40020000
+
+08000774 <delay>:
+
+void delay(void)
+{
+ 8000774:	b480      	push	{r7}
+ 8000776:	b083      	sub	sp, #12
+ 8000778:	af00      	add	r7, sp, #0
+	for (uint32_t i = 0; i < 50000000; i++);
+ 800077a:	2300      	movs	r3, #0
+ 800077c:	607b      	str	r3, [r7, #4]
+ 800077e:	e002      	b.n	8000786 <delay+0x12>
+ 8000780:	687b      	ldr	r3, [r7, #4]
+ 8000782:	3301      	adds	r3, #1
+ 8000784:	607b      	str	r3, [r7, #4]
+ 8000786:	687b      	ldr	r3, [r7, #4]
+ 8000788:	4a04      	ldr	r2, [pc, #16]	; (800079c <delay+0x28>)
+ 800078a:	4293      	cmp	r3, r2
+ 800078c:	d9f8      	bls.n	8000780 <delay+0xc>
+}
+ 800078e:	bf00      	nop
+ 8000790:	bf00      	nop
+ 8000792:	370c      	adds	r7, #12
+ 8000794:	46bd      	mov	sp, r7
+ 8000796:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 800079a:	4770      	bx	lr
+ 800079c:	02faf07f 	.word	0x02faf07f
+
+080007a0 <delay_4_hz>:
+void delay_4_hz(void){
+ 80007a0:	b480      	push	{r7}
+ 80007a2:	b083      	sub	sp, #12
+ 80007a4:	af00      	add	r7, sp, #0
+	for (uint32_t i = 0; i < 25000000; i++);
+ 80007a6:	2300      	movs	r3, #0
+ 80007a8:	607b      	str	r3, [r7, #4]
+ 80007aa:	e002      	b.n	80007b2 <delay_4_hz+0x12>
+ 80007ac:	687b      	ldr	r3, [r7, #4]
+ 80007ae:	3301      	adds	r3, #1
+ 80007b0:	607b      	str	r3, [r7, #4]
+ 80007b2:	687b      	ldr	r3, [r7, #4]
+ 80007b4:	4a04      	ldr	r2, [pc, #16]	; (80007c8 <delay_4_hz+0x28>)
+ 80007b6:	4293      	cmp	r3, r2
+ 80007b8:	d9f8      	bls.n	80007ac <delay_4_hz+0xc>
+}
+ 80007ba:	bf00      	nop
+ 80007bc:	bf00      	nop
+ 80007be:	370c      	adds	r7, #12
+ 80007c0:	46bd      	mov	sp, r7
+ 80007c2:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 80007c6:	4770      	bx	lr
+ 80007c8:	017d783f 	.word	0x017d783f
+
+080007cc <delay_8_hz>:
+void delay_8_hz(void){
+ 80007cc:	b480      	push	{r7}
+ 80007ce:	b083      	sub	sp, #12
+ 80007d0:	af00      	add	r7, sp, #0
+	for (uint32_t i = 0; i < 7500000; i++);
+ 80007d2:	2300      	movs	r3, #0
+ 80007d4:	607b      	str	r3, [r7, #4]
+ 80007d6:	e002      	b.n	80007de <delay_8_hz+0x12>
+ 80007d8:	687b      	ldr	r3, [r7, #4]
+ 80007da:	3301      	adds	r3, #1
+ 80007dc:	607b      	str	r3, [r7, #4]
+ 80007de:	687b      	ldr	r3, [r7, #4]
+ 80007e0:	4a04      	ldr	r2, [pc, #16]	; (80007f4 <delay_8_hz+0x28>)
+ 80007e2:	4293      	cmp	r3, r2
+ 80007e4:	d9f8      	bls.n	80007d8 <delay_8_hz+0xc>
+}
+ 80007e6:	bf00      	nop
+ 80007e8:	bf00      	nop
+ 80007ea:	370c      	adds	r7, #12
+ 80007ec:	46bd      	mov	sp, r7
+ 80007ee:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 80007f2:	4770      	bx	lr
+ 80007f4:	007270df 	.word	0x007270df
+
+080007f8 <ACC_mode_on>:
+
+void ACC_mode_on(void)
+{
+ 80007f8:	b580      	push	{r7, lr}
+ 80007fa:	af00      	add	r7, sp, #0
+	GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_14);
+ 80007fc:	210e      	movs	r1, #14
+ 80007fe:	4802      	ldr	r0, [pc, #8]	; (8000808 <ACC_mode_on+0x10>)
+ 8000800:	f7ff ff4f 	bl	80006a2 <GPIO_ToggleOutputPin>
+}
+ 8000804:	bf00      	nop
+ 8000806:	bd80      	pop	{r7, pc}
+ 8000808:	40020c00 	.word	0x40020c00
+
+0800080c <igniton_off>:
+
+void igniton_off(void)
+{
+ 800080c:	b580      	push	{r7, lr}
+ 800080e:	af00      	add	r7, sp, #0
+	GPIO_WriteToOutputPin(GPIOD, GPIO_PIN_NO_14, 0);
+ 8000810:	2200      	movs	r2, #0
+ 8000812:	210e      	movs	r1, #14
+ 8000814:	4802      	ldr	r0, [pc, #8]	; (8000820 <igniton_off+0x14>)
+ 8000816:	f7ff ff1f 	bl	8000658 <GPIO_WriteToOutputPin>
+}
+ 800081a:	bf00      	nop
+ 800081c:	bd80      	pop	{r7, pc}
+ 800081e:	bf00      	nop
+ 8000820:	40020c00 	.word	0x40020c00
+
+08000824 <wiper_speed_changes_4_Hz>:
+
+
+int wiper_speed_changes_4_Hz(void)
+{
+ 8000824:	b580      	push	{r7, lr}
+ 8000826:	af00      	add	r7, sp, #0
+	GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_15);
+ 8000828:	210f      	movs	r1, #15
+ 800082a:	4826      	ldr	r0, [pc, #152]	; (80008c4 <wiper_speed_changes_4_Hz+0xa0>)
+ 800082c:	f7ff ff39 	bl	80006a2 <GPIO_ToggleOutputPin>
+	delay_4_hz();
+ 8000830:	f7ff ffb6 	bl	80007a0 <delay_4_hz>
+	GPIO_WriteToOutputPin(GPIOD, GPIO_PIN_NO_15,0 );
+ 8000834:	2200      	movs	r2, #0
+ 8000836:	210f      	movs	r1, #15
+ 8000838:	4822      	ldr	r0, [pc, #136]	; (80008c4 <wiper_speed_changes_4_Hz+0xa0>)
+ 800083a:	f7ff ff0d 	bl	8000658 <GPIO_WriteToOutputPin>
+
+	GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_12);
+ 800083e:	210c      	movs	r1, #12
+ 8000840:	4820      	ldr	r0, [pc, #128]	; (80008c4 <wiper_speed_changes_4_Hz+0xa0>)
+ 8000842:	f7ff ff2e 	bl	80006a2 <GPIO_ToggleOutputPin>
+	delay_4_hz();
+ 8000846:	f7ff ffab 	bl	80007a0 <delay_4_hz>
+	GPIO_WriteToOutputPin(GPIOD, GPIO_PIN_NO_12,0 );
+ 800084a:	2200      	movs	r2, #0
+ 800084c:	210c      	movs	r1, #12
+ 800084e:	481d      	ldr	r0, [pc, #116]	; (80008c4 <wiper_speed_changes_4_Hz+0xa0>)
+ 8000850:	f7ff ff02 	bl	8000658 <GPIO_WriteToOutputPin>
+
+	GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_13);
+ 8000854:	210d      	movs	r1, #13
+ 8000856:	481b      	ldr	r0, [pc, #108]	; (80008c4 <wiper_speed_changes_4_Hz+0xa0>)
+ 8000858:	f7ff ff23 	bl	80006a2 <GPIO_ToggleOutputPin>
+	delay_4_hz();
+ 800085c:	f7ff ffa0 	bl	80007a0 <delay_4_hz>
+	GPIO_WriteToOutputPin(GPIOD, GPIO_PIN_NO_13,0 );
+ 8000860:	2200      	movs	r2, #0
+ 8000862:	210d      	movs	r1, #13
+ 8000864:	4817      	ldr	r0, [pc, #92]	; (80008c4 <wiper_speed_changes_4_Hz+0xa0>)
+ 8000866:	f7ff fef7 	bl	8000658 <GPIO_WriteToOutputPin>
+
+	GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_13);
+ 800086a:	210d      	movs	r1, #13
+ 800086c:	4815      	ldr	r0, [pc, #84]	; (80008c4 <wiper_speed_changes_4_Hz+0xa0>)
+ 800086e:	f7ff ff18 	bl	80006a2 <GPIO_ToggleOutputPin>
+	delay_4_hz();
+ 8000872:	f7ff ff95 	bl	80007a0 <delay_4_hz>
+	GPIO_WriteToOutputPin(GPIOD, GPIO_PIN_NO_13,0 );
+ 8000876:	2200      	movs	r2, #0
+ 8000878:	210d      	movs	r1, #13
+ 800087a:	4812      	ldr	r0, [pc, #72]	; (80008c4 <wiper_speed_changes_4_Hz+0xa0>)
+ 800087c:	f7ff feec 	bl	8000658 <GPIO_WriteToOutputPin>
+
+	GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_12);
+ 8000880:	210c      	movs	r1, #12
+ 8000882:	4810      	ldr	r0, [pc, #64]	; (80008c4 <wiper_speed_changes_4_Hz+0xa0>)
+ 8000884:	f7ff ff0d 	bl	80006a2 <GPIO_ToggleOutputPin>
+	delay_4_hz();
+ 8000888:	f7ff ff8a 	bl	80007a0 <delay_4_hz>
+	GPIO_WriteToOutputPin(GPIOD, GPIO_PIN_NO_12,0 );
+ 800088c:	2200      	movs	r2, #0
+ 800088e:	210c      	movs	r1, #12
+ 8000890:	480c      	ldr	r0, [pc, #48]	; (80008c4 <wiper_speed_changes_4_Hz+0xa0>)
+ 8000892:	f7ff fee1 	bl	8000658 <GPIO_WriteToOutputPin>
+
+	GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_15);
+ 8000896:	210f      	movs	r1, #15
+ 8000898:	480a      	ldr	r0, [pc, #40]	; (80008c4 <wiper_speed_changes_4_Hz+0xa0>)
+ 800089a:	f7ff ff02 	bl	80006a2 <GPIO_ToggleOutputPin>
+	delay_4_hz();
+ 800089e:	f7ff ff7f 	bl	80007a0 <delay_4_hz>
+	GPIO_WriteToOutputPin(GPIOD, GPIO_PIN_NO_15,0 );
+ 80008a2:	2200      	movs	r2, #0
+ 80008a4:	210f      	movs	r1, #15
+ 80008a6:	4807      	ldr	r0, [pc, #28]	; (80008c4 <wiper_speed_changes_4_Hz+0xa0>)
+ 80008a8:	f7ff fed6 	bl	8000658 <GPIO_WriteToOutputPin>
+
+	if (GPIO_ReadFromInputPin(GPIOA, GPIO_PIN_NO_0))
+ 80008ac:	2100      	movs	r1, #0
+ 80008ae:	4806      	ldr	r0, [pc, #24]	; (80008c8 <wiper_speed_changes_4_Hz+0xa4>)
+ 80008b0:	f7ff febc 	bl	800062c <GPIO_ReadFromInputPin>
+ 80008b4:	4603      	mov	r3, r0
+ 80008b6:	2b00      	cmp	r3, #0
+ 80008b8:	d001      	beq.n	80008be <wiper_speed_changes_4_Hz+0x9a>
+			return 1;
+ 80008ba:	2301      	movs	r3, #1
+ 80008bc:	e000      	b.n	80008c0 <wiper_speed_changes_4_Hz+0x9c>
+		else
+			return 0;
+ 80008be:	2300      	movs	r3, #0
+}
+ 80008c0:	4618      	mov	r0, r3
+ 80008c2:	bd80      	pop	{r7, pc}
+ 80008c4:	40020c00 	.word	0x40020c00
+ 80008c8:	40020000 	.word	0x40020000
+
+080008cc <wiper_speed_changes_8_Hz>:
+
+int wiper_speed_changes_8_Hz(void)
+{
+ 80008cc:	b580      	push	{r7, lr}
+ 80008ce:	af00      	add	r7, sp, #0
+	        GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_15);
+ 80008d0:	210f      	movs	r1, #15
+ 80008d2:	4826      	ldr	r0, [pc, #152]	; (800096c <wiper_speed_changes_8_Hz+0xa0>)
+ 80008d4:	f7ff fee5 	bl	80006a2 <GPIO_ToggleOutputPin>
+			delay_8_hz();
+ 80008d8:	f7ff ff78 	bl	80007cc <delay_8_hz>
+			GPIO_WriteToOutputPin(GPIOD, GPIO_PIN_NO_15,0 );
+ 80008dc:	2200      	movs	r2, #0
+ 80008de:	210f      	movs	r1, #15
+ 80008e0:	4822      	ldr	r0, [pc, #136]	; (800096c <wiper_speed_changes_8_Hz+0xa0>)
+ 80008e2:	f7ff feb9 	bl	8000658 <GPIO_WriteToOutputPin>
+
+			GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_12);
+ 80008e6:	210c      	movs	r1, #12
+ 80008e8:	4820      	ldr	r0, [pc, #128]	; (800096c <wiper_speed_changes_8_Hz+0xa0>)
+ 80008ea:	f7ff feda 	bl	80006a2 <GPIO_ToggleOutputPin>
+			delay_8_hz();
+ 80008ee:	f7ff ff6d 	bl	80007cc <delay_8_hz>
+			GPIO_WriteToOutputPin(GPIOD, GPIO_PIN_NO_12,0 );
+ 80008f2:	2200      	movs	r2, #0
+ 80008f4:	210c      	movs	r1, #12
+ 80008f6:	481d      	ldr	r0, [pc, #116]	; (800096c <wiper_speed_changes_8_Hz+0xa0>)
+ 80008f8:	f7ff feae 	bl	8000658 <GPIO_WriteToOutputPin>
+
+			GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_13);
+ 80008fc:	210d      	movs	r1, #13
+ 80008fe:	481b      	ldr	r0, [pc, #108]	; (800096c <wiper_speed_changes_8_Hz+0xa0>)
+ 8000900:	f7ff fecf 	bl	80006a2 <GPIO_ToggleOutputPin>
+			delay_8_hz();
+ 8000904:	f7ff ff62 	bl	80007cc <delay_8_hz>
+			GPIO_WriteToOutputPin(GPIOD, GPIO_PIN_NO_13,0 );
+ 8000908:	2200      	movs	r2, #0
+ 800090a:	210d      	movs	r1, #13
+ 800090c:	4817      	ldr	r0, [pc, #92]	; (800096c <wiper_speed_changes_8_Hz+0xa0>)
+ 800090e:	f7ff fea3 	bl	8000658 <GPIO_WriteToOutputPin>
+
+			GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_13);
+ 8000912:	210d      	movs	r1, #13
+ 8000914:	4815      	ldr	r0, [pc, #84]	; (800096c <wiper_speed_changes_8_Hz+0xa0>)
+ 8000916:	f7ff fec4 	bl	80006a2 <GPIO_ToggleOutputPin>
+			delay_8_hz();
+ 800091a:	f7ff ff57 	bl	80007cc <delay_8_hz>
+			GPIO_WriteToOutputPin(GPIOD, GPIO_PIN_NO_13,0 );
+ 800091e:	2200      	movs	r2, #0
+ 8000920:	210d      	movs	r1, #13
+ 8000922:	4812      	ldr	r0, [pc, #72]	; (800096c <wiper_speed_changes_8_Hz+0xa0>)
+ 8000924:	f7ff fe98 	bl	8000658 <GPIO_WriteToOutputPin>
+
+			GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_12);
+ 8000928:	210c      	movs	r1, #12
+ 800092a:	4810      	ldr	r0, [pc, #64]	; (800096c <wiper_speed_changes_8_Hz+0xa0>)
+ 800092c:	f7ff feb9 	bl	80006a2 <GPIO_ToggleOutputPin>
+			delay_8_hz();
+ 8000930:	f7ff ff4c 	bl	80007cc <delay_8_hz>
+			GPIO_WriteToOutputPin(GPIOD, GPIO_PIN_NO_12,0 );
+ 8000934:	2200      	movs	r2, #0
+ 8000936:	210c      	movs	r1, #12
+ 8000938:	480c      	ldr	r0, [pc, #48]	; (800096c <wiper_speed_changes_8_Hz+0xa0>)
+ 800093a:	f7ff fe8d 	bl	8000658 <GPIO_WriteToOutputPin>
+
+			GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_15);
+ 800093e:	210f      	movs	r1, #15
+ 8000940:	480a      	ldr	r0, [pc, #40]	; (800096c <wiper_speed_changes_8_Hz+0xa0>)
+ 8000942:	f7ff feae 	bl	80006a2 <GPIO_ToggleOutputPin>
+			delay_8_hz();
+ 8000946:	f7ff ff41 	bl	80007cc <delay_8_hz>
+			GPIO_WriteToOutputPin(GPIOD, GPIO_PIN_NO_15,0 );
+ 800094a:	2200      	movs	r2, #0
+ 800094c:	210f      	movs	r1, #15
+ 800094e:	4807      	ldr	r0, [pc, #28]	; (800096c <wiper_speed_changes_8_Hz+0xa0>)
+ 8000950:	f7ff fe82 	bl	8000658 <GPIO_WriteToOutputPin>
+
+			if (GPIO_ReadFromInputPin(GPIOA, GPIO_PIN_NO_0))
+ 8000954:	2100      	movs	r1, #0
+ 8000956:	4806      	ldr	r0, [pc, #24]	; (8000970 <wiper_speed_changes_8_Hz+0xa4>)
+ 8000958:	f7ff fe68 	bl	800062c <GPIO_ReadFromInputPin>
+ 800095c:	4603      	mov	r3, r0
+ 800095e:	2b00      	cmp	r3, #0
+ 8000960:	d001      	beq.n	8000966 <wiper_speed_changes_8_Hz+0x9a>
+					return 1;
+ 8000962:	2301      	movs	r3, #1
+ 8000964:	e000      	b.n	8000968 <wiper_speed_changes_8_Hz+0x9c>
+				else
+					return 0;
+ 8000966:	2300      	movs	r3, #0
+}
+ 8000968:	4618      	mov	r0, r3
+ 800096a:	bd80      	pop	{r7, pc}
+ 800096c:	40020c00 	.word	0x40020c00
+ 8000970:	40020000 	.word	0x40020000
+
+08000974 <wiper_off>:
+
+
+void wiper_off(void)
+{
+ 8000974:	b580      	push	{r7, lr}
+ 8000976:	af00      	add	r7, sp, #0
+	        GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_13);
+ 8000978:	210d      	movs	r1, #13
+ 800097a:	4811      	ldr	r0, [pc, #68]	; (80009c0 <wiper_off+0x4c>)
+ 800097c:	f7ff fe91 	bl	80006a2 <GPIO_ToggleOutputPin>
+			delay();
+ 8000980:	f7ff fef8 	bl	8000774 <delay>
+			GPIO_WriteToOutputPin(GPIOD, GPIO_PIN_NO_13, 0);
+ 8000984:	2200      	movs	r2, #0
+ 8000986:	210d      	movs	r1, #13
+ 8000988:	480d      	ldr	r0, [pc, #52]	; (80009c0 <wiper_off+0x4c>)
+ 800098a:	f7ff fe65 	bl	8000658 <GPIO_WriteToOutputPin>
+
+			GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_12);
+ 800098e:	210c      	movs	r1, #12
+ 8000990:	480b      	ldr	r0, [pc, #44]	; (80009c0 <wiper_off+0x4c>)
+ 8000992:	f7ff fe86 	bl	80006a2 <GPIO_ToggleOutputPin>
+			delay();
+ 8000996:	f7ff feed 	bl	8000774 <delay>
+			GPIO_WriteToOutputPin(GPIOD, GPIO_PIN_NO_12, 0);
+ 800099a:	2200      	movs	r2, #0
+ 800099c:	210c      	movs	r1, #12
+ 800099e:	4808      	ldr	r0, [pc, #32]	; (80009c0 <wiper_off+0x4c>)
+ 80009a0:	f7ff fe5a 	bl	8000658 <GPIO_WriteToOutputPin>
+
+			GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_15);
+ 80009a4:	210f      	movs	r1, #15
+ 80009a6:	4806      	ldr	r0, [pc, #24]	; (80009c0 <wiper_off+0x4c>)
+ 80009a8:	f7ff fe7b 	bl	80006a2 <GPIO_ToggleOutputPin>
+			delay();
+ 80009ac:	f7ff fee2 	bl	8000774 <delay>
+			GPIO_WriteToOutputPin(GPIOD, GPIO_PIN_NO_15,0 );
+ 80009b0:	2200      	movs	r2, #0
+ 80009b2:	210f      	movs	r1, #15
+ 80009b4:	4802      	ldr	r0, [pc, #8]	; (80009c0 <wiper_off+0x4c>)
+ 80009b6:	f7ff fe4f 	bl	8000658 <GPIO_WriteToOutputPin>
+
+}
+ 80009ba:	bf00      	nop
+ 80009bc:	bd80      	pop	{r7, pc}
+ 80009be:	bf00      	nop
+ 80009c0:	40020c00 	.word	0x40020c00
+
+080009c4 <main>:
 void delay_4_hz(void);
 void delay_8_hz(void);
 
 
 int main(void)
 {
- 80006cc:	b580      	push	{r7, lr}
- 80006ce:	b090      	sub	sp, #64	; 0x40
- 80006d0:	af00      	add	r7, sp, #0
+ 80009c4:	b580      	push	{r7, lr}
+ 80009c6:	b090      	sub	sp, #64	; 0x40
+ 80009c8:	af00      	add	r7, sp, #0
 
 	GPIO_Handle_t GpioLed, GpioLed1, GpioLed2, GpioLed3, GpioBtn;
 
 
 	GpioLed.pGPIOx = GPIOD;
- 80006d2:	4b60      	ldr	r3, [pc, #384]	; (8000854 <main+0x188>)
- 80006d4:	633b      	str	r3, [r7, #48]	; 0x30
+ 80009ca:	4b60      	ldr	r3, [pc, #384]	; (8000b4c <main+0x188>)
+ 80009cc:	633b      	str	r3, [r7, #48]	; 0x30
 	GpioLed.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_12;
- 80006d6:	230c      	movs	r3, #12
- 80006d8:	f887 3034 	strb.w	r3, [r7, #52]	; 0x34
+ 80009ce:	230c      	movs	r3, #12
+ 80009d0:	f887 3034 	strb.w	r3, [r7, #52]	; 0x34
 	GpioLed.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_OUT;
- 80006dc:	2301      	movs	r3, #1
- 80006de:	f887 3035 	strb.w	r3, [r7, #53]	; 0x35
+ 80009d4:	2301      	movs	r3, #1
+ 80009d6:	f887 3035 	strb.w	r3, [r7, #53]	; 0x35
 	GpioLed.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_FAST;
- 80006e2:	2302      	movs	r3, #2
- 80006e4:	f887 3036 	strb.w	r3, [r7, #54]	; 0x36
+ 80009da:	2302      	movs	r3, #2
+ 80009dc:	f887 3036 	strb.w	r3, [r7, #54]	; 0x36
 	GpioLed.GPIO_PinConfig.GPIO_PinOPType = GPIO_OP_TYPE_PP;
- 80006e8:	2300      	movs	r3, #0
- 80006ea:	f887 3038 	strb.w	r3, [r7, #56]	; 0x38
+ 80009e0:	2300      	movs	r3, #0
+ 80009e2:	f887 3038 	strb.w	r3, [r7, #56]	; 0x38
 	GPIO_PeriClockControl(GPIOD, ENABLE);
- 80006ee:	2101      	movs	r1, #1
- 80006f0:	4858      	ldr	r0, [pc, #352]	; (8000854 <main+0x188>)
- 80006f2:	f7ff fd79 	bl	80001e8 <GPIO_PeriClockControl>
+ 80009e6:	2101      	movs	r1, #1
+ 80009e8:	4858      	ldr	r0, [pc, #352]	; (8000b4c <main+0x188>)
+ 80009ea:	f7ff fbfd 	bl	80001e8 <GPIO_PeriClockControl>
 	GPIO_Init(&GpioLed);
- 80006f6:	f107 0330 	add.w	r3, r7, #48	; 0x30
- 80006fa:	4618      	mov	r0, r3
- 80006fc:	f7ff fdfa 	bl	80002f4 <GPIO_Init>
+ 80009ee:	f107 0330 	add.w	r3, r7, #48	; 0x30
+ 80009f2:	4618      	mov	r0, r3
+ 80009f4:	f7ff fc7e 	bl	80002f4 <GPIO_Init>
 
 
 	GpioLed1.pGPIOx = GPIOD;
- 8000700:	4b54      	ldr	r3, [pc, #336]	; (8000854 <main+0x188>)
- 8000702:	627b      	str	r3, [r7, #36]	; 0x24
+ 80009f8:	4b54      	ldr	r3, [pc, #336]	; (8000b4c <main+0x188>)
+ 80009fa:	627b      	str	r3, [r7, #36]	; 0x24
 	GpioLed1.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_13;
- 8000704:	230d      	movs	r3, #13
- 8000706:	f887 3028 	strb.w	r3, [r7, #40]	; 0x28
+ 80009fc:	230d      	movs	r3, #13
+ 80009fe:	f887 3028 	strb.w	r3, [r7, #40]	; 0x28
 	GpioLed1.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_OUT;
- 800070a:	2301      	movs	r3, #1
- 800070c:	f887 3029 	strb.w	r3, [r7, #41]	; 0x29
+ 8000a02:	2301      	movs	r3, #1
+ 8000a04:	f887 3029 	strb.w	r3, [r7, #41]	; 0x29
 	GpioLed1.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_FAST;
- 8000710:	2302      	movs	r3, #2
- 8000712:	f887 302a 	strb.w	r3, [r7, #42]	; 0x2a
+ 8000a08:	2302      	movs	r3, #2
+ 8000a0a:	f887 302a 	strb.w	r3, [r7, #42]	; 0x2a
 	GpioLed1.GPIO_PinConfig.GPIO_PinOPType = GPIO_OP_TYPE_PP;
- 8000716:	2300      	movs	r3, #0
- 8000718:	f887 302c 	strb.w	r3, [r7, #44]	; 0x2c
+ 8000a0e:	2300      	movs	r3, #0
+ 8000a10:	f887 302c 	strb.w	r3, [r7, #44]	; 0x2c
 	GPIO_PeriClockControl(GPIOD, ENABLE);
- 800071c:	2101      	movs	r1, #1
- 800071e:	484d      	ldr	r0, [pc, #308]	; (8000854 <main+0x188>)
- 8000720:	f7ff fd62 	bl	80001e8 <GPIO_PeriClockControl>
+ 8000a14:	2101      	movs	r1, #1
+ 8000a16:	484d      	ldr	r0, [pc, #308]	; (8000b4c <main+0x188>)
+ 8000a18:	f7ff fbe6 	bl	80001e8 <GPIO_PeriClockControl>
 	GPIO_Init(&GpioLed1);
- 8000724:	f107 0324 	add.w	r3, r7, #36	; 0x24
- 8000728:	4618      	mov	r0, r3
- 800072a:	f7ff fde3 	bl	80002f4 <GPIO_Init>
+ 8000a1c:	f107 0324 	add.w	r3, r7, #36	; 0x24
+ 8000a20:	4618      	mov	r0, r3
+ 8000a22:	f7ff fc67 	bl	80002f4 <GPIO_Init>
 
 
 	GpioLed2.pGPIOx = GPIOD;
- 800072e:	4b49      	ldr	r3, [pc, #292]	; (8000854 <main+0x188>)
- 8000730:	61bb      	str	r3, [r7, #24]
+ 8000a26:	4b49      	ldr	r3, [pc, #292]	; (8000b4c <main+0x188>)
+ 8000a28:	61bb      	str	r3, [r7, #24]
 	GpioLed2.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_14;
- 8000732:	230e      	movs	r3, #14
- 8000734:	773b      	strb	r3, [r7, #28]
+ 8000a2a:	230e      	movs	r3, #14
+ 8000a2c:	773b      	strb	r3, [r7, #28]
 	GpioLed2.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_OUT;
- 8000736:	2301      	movs	r3, #1
- 8000738:	777b      	strb	r3, [r7, #29]
+ 8000a2e:	2301      	movs	r3, #1
+ 8000a30:	777b      	strb	r3, [r7, #29]
 	GpioLed2.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_FAST;
- 800073a:	2302      	movs	r3, #2
- 800073c:	77bb      	strb	r3, [r7, #30]
+ 8000a32:	2302      	movs	r3, #2
+ 8000a34:	77bb      	strb	r3, [r7, #30]
 	GpioLed2.GPIO_PinConfig.GPIO_PinOPType = GPIO_OP_TYPE_PP;
- 800073e:	2300      	movs	r3, #0
- 8000740:	f887 3020 	strb.w	r3, [r7, #32]
+ 8000a36:	2300      	movs	r3, #0
+ 8000a38:	f887 3020 	strb.w	r3, [r7, #32]
 	GPIO_PeriClockControl(GPIOD, ENABLE);
- 8000744:	2101      	movs	r1, #1
- 8000746:	4843      	ldr	r0, [pc, #268]	; (8000854 <main+0x188>)
- 8000748:	f7ff fd4e 	bl	80001e8 <GPIO_PeriClockControl>
+ 8000a3c:	2101      	movs	r1, #1
+ 8000a3e:	4843      	ldr	r0, [pc, #268]	; (8000b4c <main+0x188>)
+ 8000a40:	f7ff fbd2 	bl	80001e8 <GPIO_PeriClockControl>
 	GPIO_Init(&GpioLed2);
- 800074c:	f107 0318 	add.w	r3, r7, #24
- 8000750:	4618      	mov	r0, r3
- 8000752:	f7ff fdcf 	bl	80002f4 <GPIO_Init>
+ 8000a44:	f107 0318 	add.w	r3, r7, #24
+ 8000a48:	4618      	mov	r0, r3
+ 8000a4a:	f7ff fc53 	bl	80002f4 <GPIO_Init>
 
 
 	GpioLed3.pGPIOx = GPIOD;
- 8000756:	4b3f      	ldr	r3, [pc, #252]	; (8000854 <main+0x188>)
- 8000758:	60fb      	str	r3, [r7, #12]
+ 8000a4e:	4b3f      	ldr	r3, [pc, #252]	; (8000b4c <main+0x188>)
+ 8000a50:	60fb      	str	r3, [r7, #12]
 	GpioLed3.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_15;
- 800075a:	230f      	movs	r3, #15
- 800075c:	743b      	strb	r3, [r7, #16]
+ 8000a52:	230f      	movs	r3, #15
+ 8000a54:	743b      	strb	r3, [r7, #16]
 	GpioLed3.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_OUT;
- 800075e:	2301      	movs	r3, #1
- 8000760:	747b      	strb	r3, [r7, #17]
+ 8000a56:	2301      	movs	r3, #1
+ 8000a58:	747b      	strb	r3, [r7, #17]
 	GpioLed3.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_FAST;
- 8000762:	2302      	movs	r3, #2
- 8000764:	74bb      	strb	r3, [r7, #18]
+ 8000a5a:	2302      	movs	r3, #2
+ 8000a5c:	74bb      	strb	r3, [r7, #18]
 	GpioLed3.GPIO_PinConfig.GPIO_PinOPType = GPIO_OP_TYPE_PP;
- 8000766:	2300      	movs	r3, #0
- 8000768:	753b      	strb	r3, [r7, #20]
+ 8000a5e:	2300      	movs	r3, #0
+ 8000a60:	753b      	strb	r3, [r7, #20]
 	GPIO_PeriClockControl(GPIOD, ENABLE);
- 800076a:	2101      	movs	r1, #1
- 800076c:	4839      	ldr	r0, [pc, #228]	; (8000854 <main+0x188>)
- 800076e:	f7ff fd3b 	bl	80001e8 <GPIO_PeriClockControl>
+ 8000a62:	2101      	movs	r1, #1
+ 8000a64:	4839      	ldr	r0, [pc, #228]	; (8000b4c <main+0x188>)
+ 8000a66:	f7ff fbbf 	bl	80001e8 <GPIO_PeriClockControl>
 	GPIO_Init(&GpioLed3);
- 8000772:	f107 030c 	add.w	r3, r7, #12
- 8000776:	4618      	mov	r0, r3
- 8000778:	f7ff fdbc 	bl	80002f4 <GPIO_Init>
+ 8000a6a:	f107 030c 	add.w	r3, r7, #12
+ 8000a6e:	4618      	mov	r0, r3
+ 8000a70:	f7ff fc40 	bl	80002f4 <GPIO_Init>
 
 
 	GpioBtn.pGPIOx = GPIOA;
- 800077c:	4b36      	ldr	r3, [pc, #216]	; (8000858 <main+0x18c>)
- 800077e:	603b      	str	r3, [r7, #0]
+ 8000a74:	4b36      	ldr	r3, [pc, #216]	; (8000b50 <main+0x18c>)
+ 8000a76:	603b      	str	r3, [r7, #0]
 	GpioBtn.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_0;
- 8000780:	2300      	movs	r3, #0
- 8000782:	713b      	strb	r3, [r7, #4]
+ 8000a78:	2300      	movs	r3, #0
+ 8000a7a:	713b      	strb	r3, [r7, #4]
 	GpioBtn.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_IN;
- 8000784:	2300      	movs	r3, #0
- 8000786:	717b      	strb	r3, [r7, #5]
+ 8000a7c:	2300      	movs	r3, #0
+ 8000a7e:	717b      	strb	r3, [r7, #5]
 	GpioBtn.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_FAST;
- 8000788:	2302      	movs	r3, #2
- 800078a:	71bb      	strb	r3, [r7, #6]
+ 8000a80:	2302      	movs	r3, #2
+ 8000a82:	71bb      	strb	r3, [r7, #6]
 	GpioBtn.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_NO_PUPD;
- 800078c:	2300      	movs	r3, #0
- 800078e:	71fb      	strb	r3, [r7, #7]
+ 8000a84:	2300      	movs	r3, #0
+ 8000a86:	71fb      	strb	r3, [r7, #7]
 	GPIO_PeriClockControl(GPIOA, ENABLE);
- 8000790:	2101      	movs	r1, #1
- 8000792:	4831      	ldr	r0, [pc, #196]	; (8000858 <main+0x18c>)
- 8000794:	f7ff fd28 	bl	80001e8 <GPIO_PeriClockControl>
+ 8000a88:	2101      	movs	r1, #1
+ 8000a8a:	4831      	ldr	r0, [pc, #196]	; (8000b50 <main+0x18c>)
+ 8000a8c:	f7ff fbac 	bl	80001e8 <GPIO_PeriClockControl>
 	GPIO_Init(&GpioBtn);
- 8000798:	463b      	mov	r3, r7
- 800079a:	4618      	mov	r0, r3
- 800079c:	f7ff fdaa 	bl	80002f4 <GPIO_Init>
+ 8000a90:	463b      	mov	r3, r7
+ 8000a92:	4618      	mov	r0, r3
+ 8000a94:	f7ff fc2e 	bl	80002f4 <GPIO_Init>
 	uint32_t count=0;
- 80007a0:	2300      	movs	r3, #0
- 80007a2:	63fb      	str	r3, [r7, #60]	; 0x3c
+ 8000a98:	2300      	movs	r3, #0
+ 8000a9a:	63fb      	str	r3, [r7, #60]	; 0x3c
 
 	while (1)
 	{
 		GPIO_WriteToOutputPin(GPIOA, GPIO_PIN_NO_0, DISABLE);
- 80007a4:	2200      	movs	r2, #0
- 80007a6:	2100      	movs	r1, #0
- 80007a8:	482b      	ldr	r0, [pc, #172]	; (8000858 <main+0x18c>)
- 80007aa:	f7ff ff55 	bl	8000658 <GPIO_WriteToOutputPin>
+ 8000a9c:	2200      	movs	r2, #0
+ 8000a9e:	2100      	movs	r1, #0
+ 8000aa0:	482b      	ldr	r0, [pc, #172]	; (8000b50 <main+0x18c>)
+ 8000aa2:	f7ff fdd9 	bl	8000658 <GPIO_WriteToOutputPin>
 		if (GPIO_ReadFromInputPin(GPIOA, GPIO_PIN_NO_0))
- 80007ae:	2100      	movs	r1, #0
- 80007b0:	4829      	ldr	r0, [pc, #164]	; (8000858 <main+0x18c>)
- 80007b2:	f7ff ff3b 	bl	800062c <GPIO_ReadFromInputPin>
- 80007b6:	4603      	mov	r3, r0
- 80007b8:	2b00      	cmp	r3, #0
- 80007ba:	d0f3      	beq.n	80007a4 <main+0xd8>
+ 8000aa6:	2100      	movs	r1, #0
+ 8000aa8:	4829      	ldr	r0, [pc, #164]	; (8000b50 <main+0x18c>)
+ 8000aaa:	f7ff fdbf 	bl	800062c <GPIO_ReadFromInputPin>
+ 8000aae:	4603      	mov	r3, r0
+ 8000ab0:	2b00      	cmp	r3, #0
+ 8000ab2:	d0f3      	beq.n	8000a9c <main+0xd8>
 		{
 			count++;
- 80007bc:	6bfb      	ldr	r3, [r7, #60]	; 0x3c
- 80007be:	3301      	adds	r3, #1
- 80007c0:	63fb      	str	r3, [r7, #60]	; 0x3c
+ 8000ab4:	6bfb      	ldr	r3, [r7, #60]	; 0x3c
+ 8000ab6:	3301      	adds	r3, #1
+ 8000ab8:	63fb      	str	r3, [r7, #60]	; 0x3c
 		   if (count == 1)
- 80007c2:	6bfb      	ldr	r3, [r7, #60]	; 0x3c
- 80007c4:	2b01      	cmp	r3, #1
- 80007c6:	d108      	bne.n	80007da <main+0x10e>
+ 8000aba:	6bfb      	ldr	r3, [r7, #60]	; 0x3c
+ 8000abc:	2b01      	cmp	r3, #1
+ 8000abe:	d108      	bne.n	8000ad2 <main+0x10e>
 			{
 				delay();
- 80007c8:	f000 f848 	bl	800085c <delay>
+ 8000ac0:	f7ff fe58 	bl	8000774 <delay>
 				ACC_mode_on();
- 80007cc:	f000 f888 	bl	80008e0 <ACC_mode_on>
+ 8000ac4:	f7ff fe98 	bl	80007f8 <ACC_mode_on>
 				GPIO_ReadFromInputPin(GPIOA, GPIO_PIN_RESET);
- 80007d0:	2100      	movs	r1, #0
- 80007d2:	4821      	ldr	r0, [pc, #132]	; (8000858 <main+0x18c>)
- 80007d4:	f7ff ff2a 	bl	800062c <GPIO_ReadFromInputPin>
- 80007d8:	e7e4      	b.n	80007a4 <main+0xd8>
+ 8000ac8:	2100      	movs	r1, #0
+ 8000aca:	4821      	ldr	r0, [pc, #132]	; (8000b50 <main+0x18c>)
+ 8000acc:	f7ff fdae 	bl	800062c <GPIO_ReadFromInputPin>
+ 8000ad0:	e7e4      	b.n	8000a9c <main+0xd8>
 			}
 		    else if(count == 2)
- 80007da:	6bfb      	ldr	r3, [r7, #60]	; 0x3c
- 80007dc:	2b02      	cmp	r3, #2
- 80007de:	d109      	bne.n	80007f4 <main+0x128>
+ 8000ad2:	6bfb      	ldr	r3, [r7, #60]	; 0x3c
+ 8000ad4:	2b02      	cmp	r3, #2
+ 8000ad6:	d109      	bne.n	8000aec <main+0x128>
 			{
 		    	while(count==2){
- 80007e0:	e004      	b.n	80007ec <main+0x120>
+ 8000ad8:	e004      	b.n	8000ae4 <main+0x120>
 		    		if(wiper_on()==1){
- 80007e2:	f000 f893 	bl	800090c <wiper_on>
- 80007e6:	4603      	mov	r3, r0
- 80007e8:	2b01      	cmp	r3, #1
- 80007ea:	d02d      	beq.n	8000848 <main+0x17c>
+ 8000ada:	f7ff fdf7 	bl	80006cc <wiper_on>
+ 8000ade:	4603      	mov	r3, r0
+ 8000ae0:	2b01      	cmp	r3, #1
+ 8000ae2:	d02d      	beq.n	8000b40 <main+0x17c>
 		    	while(count==2){
- 80007ec:	6bfb      	ldr	r3, [r7, #60]	; 0x3c
- 80007ee:	2b02      	cmp	r3, #2
- 80007f0:	d0f7      	beq.n	80007e2 <main+0x116>
- 80007f2:	e7d7      	b.n	80007a4 <main+0xd8>
+ 8000ae4:	6bfb      	ldr	r3, [r7, #60]	; 0x3c
+ 8000ae6:	2b02      	cmp	r3, #2
+ 8000ae8:	d0f7      	beq.n	8000ada <main+0x116>
+ 8000aea:	e7d7      	b.n	8000a9c <main+0xd8>
 		    			break;
 		    		}
 		    	}
 
 			}
 			else if(count == 3)
- 80007f4:	6bfb      	ldr	r3, [r7, #60]	; 0x3c
- 80007f6:	2b03      	cmp	r3, #3
- 80007f8:	d109      	bne.n	800080e <main+0x142>
+ 8000aec:	6bfb      	ldr	r3, [r7, #60]	; 0x3c
+ 8000aee:	2b03      	cmp	r3, #3
+ 8000af0:	d109      	bne.n	8000b06 <main+0x142>
 			{
 				while(count==3){
- 80007fa:	e004      	b.n	8000806 <main+0x13a>
+ 8000af2:	e004      	b.n	8000afe <main+0x13a>
 					if(wiper_speed_changes_4_Hz()==1){
- 80007fc:	f000 f8da 	bl	80009b4 <wiper_speed_changes_4_Hz>
- 8000800:	4603      	mov	r3, r0
- 8000802:	2b01      	cmp	r3, #1
- 8000804:	d022      	beq.n	800084c <main+0x180>
+ 8000af4:	f7ff fe96 	bl	8000824 <wiper_speed_changes_4_Hz>
+ 8000af8:	4603      	mov	r3, r0
+ 8000afa:	2b01      	cmp	r3, #1
+ 8000afc:	d022      	beq.n	8000b44 <main+0x180>
 				while(count==3){
- 8000806:	6bfb      	ldr	r3, [r7, #60]	; 0x3c
- 8000808:	2b03      	cmp	r3, #3
- 800080a:	d0f7      	beq.n	80007fc <main+0x130>
- 800080c:	e7ca      	b.n	80007a4 <main+0xd8>
+ 8000afe:	6bfb      	ldr	r3, [r7, #60]	; 0x3c
+ 8000b00:	2b03      	cmp	r3, #3
+ 8000b02:	d0f7      	beq.n	8000af4 <main+0x130>
+ 8000b04:	e7ca      	b.n	8000a9c <main+0xd8>
 						break;
 					}
 				}
 			}
 			else if(count == 4)
- 800080e:	6bfb      	ldr	r3, [r7, #60]	; 0x3c
- 8000810:	2b04      	cmp	r3, #4
- 8000812:	d109      	bne.n	8000828 <main+0x15c>
+ 8000b06:	6bfb      	ldr	r3, [r7, #60]	; 0x3c
+ 8000b08:	2b04      	cmp	r3, #4
+ 8000b0a:	d109      	bne.n	8000b20 <main+0x15c>
 			{
 				while(count==4){
- 8000814:	e004      	b.n	8000820 <main+0x154>
+ 8000b0c:	e004      	b.n	8000b18 <main+0x154>
 					if(wiper_speed_changes_8_Hz()==1){
- 8000816:	f000 f921 	bl	8000a5c <wiper_speed_changes_8_Hz>
- 800081a:	4603      	mov	r3, r0
- 800081c:	2b01      	cmp	r3, #1
- 800081e:	d017      	beq.n	8000850 <main+0x184>
+ 8000b0e:	f7ff fedd 	bl	80008cc <wiper_speed_changes_8_Hz>
+ 8000b12:	4603      	mov	r3, r0
+ 8000b14:	2b01      	cmp	r3, #1
+ 8000b16:	d017      	beq.n	8000b48 <main+0x184>
 				while(count==4){
- 8000820:	6bfb      	ldr	r3, [r7, #60]	; 0x3c
- 8000822:	2b04      	cmp	r3, #4
- 8000824:	d0f7      	beq.n	8000816 <main+0x14a>
- 8000826:	e7bd      	b.n	80007a4 <main+0xd8>
+ 8000b18:	6bfb      	ldr	r3, [r7, #60]	; 0x3c
+ 8000b1a:	2b04      	cmp	r3, #4
+ 8000b1c:	d0f7      	beq.n	8000b0e <main+0x14a>
+ 8000b1e:	e7bd      	b.n	8000a9c <main+0xd8>
 						break;
 					}
 				}
 
 			}
 			else if(count == 5){
- 8000828:	6bfb      	ldr	r3, [r7, #60]	; 0x3c
- 800082a:	2b05      	cmp	r3, #5
- 800082c:	d102      	bne.n	8000834 <main+0x168>
+ 8000b20:	6bfb      	ldr	r3, [r7, #60]	; 0x3c
+ 8000b22:	2b05      	cmp	r3, #5
+ 8000b24:	d102      	bne.n	8000b2c <main+0x168>
 				wiper_off();
- 800082e:	f000 f969 	bl	8000b04 <wiper_off>
- 8000832:	e7b7      	b.n	80007a4 <main+0xd8>
+ 8000b26:	f7ff ff25 	bl	8000974 <wiper_off>
+ 8000b2a:	e7b7      	b.n	8000a9c <main+0xd8>
 			}
 			else if(count==6){
- 8000834:	6bfb      	ldr	r3, [r7, #60]	; 0x3c
- 8000836:	2b06      	cmp	r3, #6
- 8000838:	d1b4      	bne.n	80007a4 <main+0xd8>
+ 8000b2c:	6bfb      	ldr	r3, [r7, #60]	; 0x3c
+ 8000b2e:	2b06      	cmp	r3, #6
+ 8000b30:	d1b4      	bne.n	8000a9c <main+0xd8>
 				delay();
- 800083a:	f000 f80f 	bl	800085c <delay>
+ 8000b32:	f7ff fe1f 	bl	8000774 <delay>
 				igniton_off();
- 800083e:	f000 f859 	bl	80008f4 <igniton_off>
+ 8000b36:	f7ff fe69 	bl	800080c <igniton_off>
 				count=0;
- 8000842:	2300      	movs	r3, #0
- 8000844:	63fb      	str	r3, [r7, #60]	; 0x3c
- 8000846:	e7ad      	b.n	80007a4 <main+0xd8>
+ 8000b3a:	2300      	movs	r3, #0
+ 8000b3c:	63fb      	str	r3, [r7, #60]	; 0x3c
+ 8000b3e:	e7ad      	b.n	8000a9c <main+0xd8>
 		    			break;
- 8000848:	bf00      	nop
- 800084a:	e7ab      	b.n	80007a4 <main+0xd8>
+ 8000b40:	bf00      	nop
+ 8000b42:	e7ab      	b.n	8000a9c <main+0xd8>
 						break;
- 800084c:	bf00      	nop
- 800084e:	e7a9      	b.n	80007a4 <main+0xd8>
+ 8000b44:	bf00      	nop
+ 8000b46:	e7a9      	b.n	8000a9c <main+0xd8>
 						break;
- 8000850:	bf00      	nop
+ 8000b48:	bf00      	nop
 		GPIO_WriteToOutputPin(GPIOA, GPIO_PIN_NO_0, DISABLE);
- 8000852:	e7a7      	b.n	80007a4 <main+0xd8>
- 8000854:	40020c00 	.word	0x40020c00
- 8000858:	40020000 	.word	0x40020000
-
-0800085c <delay>:
-			}
-		}
-	}
-}
-void delay(void)
-{
- 800085c:	b480      	push	{r7}
- 800085e:	b083      	sub	sp, #12
- 8000860:	af00      	add	r7, sp, #0
-	for (uint32_t i = 0; i < 50000000; i++);
- 8000862:	2300      	movs	r3, #0
- 8000864:	607b      	str	r3, [r7, #4]
- 8000866:	e002      	b.n	800086e <delay+0x12>
- 8000868:	687b      	ldr	r3, [r7, #4]
- 800086a:	3301      	adds	r3, #1
- 800086c:	607b      	str	r3, [r7, #4]
- 800086e:	687b      	ldr	r3, [r7, #4]
- 8000870:	4a04      	ldr	r2, [pc, #16]	; (8000884 <delay+0x28>)
- 8000872:	4293      	cmp	r3, r2
- 8000874:	d9f8      	bls.n	8000868 <delay+0xc>
-}
- 8000876:	bf00      	nop
- 8000878:	bf00      	nop
- 800087a:	370c      	adds	r7, #12
- 800087c:	46bd      	mov	sp, r7
- 800087e:	f85d 7b04 	ldr.w	r7, [sp], #4
- 8000882:	4770      	bx	lr
- 8000884:	02faf07f 	.word	0x02faf07f
-
-08000888 <delay_4_hz>:
-void delay_4_hz(void){
- 8000888:	b480      	push	{r7}
- 800088a:	b083      	sub	sp, #12
- 800088c:	af00      	add	r7, sp, #0
-	for (uint32_t i = 0; i < 25000000; i++);
- 800088e:	2300      	movs	r3, #0
- 8000890:	607b      	str	r3, [r7, #4]
- 8000892:	e002      	b.n	800089a <delay_4_hz+0x12>
- 8000894:	687b      	ldr	r3, [r7, #4]
- 8000896:	3301      	adds	r3, #1
- 8000898:	607b      	str	r3, [r7, #4]
- 800089a:	687b      	ldr	r3, [r7, #4]
- 800089c:	4a04      	ldr	r2, [pc, #16]	; (80008b0 <delay_4_hz+0x28>)
- 800089e:	4293      	cmp	r3, r2
- 80008a0:	d9f8      	bls.n	8000894 <delay_4_hz+0xc>
-}
- 80008a2:	bf00      	nop
- 80008a4:	bf00      	nop
- 80008a6:	370c      	adds	r7, #12
- 80008a8:	46bd      	mov	sp, r7
- 80008aa:	f85d 7b04 	ldr.w	r7, [sp], #4
- 80008ae:	4770      	bx	lr
- 80008b0:	017d783f 	.word	0x017d783f
-
-080008b4 <delay_8_hz>:
-void delay_8_hz(void){
- 80008b4:	b480      	push	{r7}
- 80008b6:	b083      	sub	sp, #12
- 80008b8:	af00      	add	r7, sp, #0
-	for (uint32_t i = 0; i < 7500000; i++);
- 80008ba:	2300      	movs	r3, #0
- 80008bc:	607b      	str	r3, [r7, #4]
- 80008be:	e002      	b.n	80008c6 <delay_8_hz+0x12>
- 80008c0:	687b      	ldr	r3, [r7, #4]
- 80008c2:	3301      	adds	r3, #1
- 80008c4:	607b      	str	r3, [r7, #4]
- 80008c6:	687b      	ldr	r3, [r7, #4]
- 80008c8:	4a04      	ldr	r2, [pc, #16]	; (80008dc <delay_8_hz+0x28>)
- 80008ca:	4293      	cmp	r3, r2
- 80008cc:	d9f8      	bls.n	80008c0 <delay_8_hz+0xc>
-}
- 80008ce:	bf00      	nop
- 80008d0:	bf00      	nop
- 80008d2:	370c      	adds	r7, #12
- 80008d4:	46bd      	mov	sp, r7
- 80008d6:	f85d 7b04 	ldr.w	r7, [sp], #4
- 80008da:	4770      	bx	lr
- 80008dc:	007270df 	.word	0x007270df
-
-080008e0 <ACC_mode_on>:
-
-void ACC_mode_on(void)
-{
- 80008e0:	b580      	push	{r7, lr}
- 80008e2:	af00      	add	r7, sp, #0
-	GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_14);
- 80008e4:	210e      	movs	r1, #14
- 80008e6:	4802      	ldr	r0, [pc, #8]	; (80008f0 <ACC_mode_on+0x10>)
- 80008e8:	f7ff fedb 	bl	80006a2 <GPIO_ToggleOutputPin>
-}
- 80008ec:	bf00      	nop
- 80008ee:	bd80      	pop	{r7, pc}
- 80008f0:	40020c00 	.word	0x40020c00
-
-080008f4 <igniton_off>:
-
-void igniton_off(void)
-{
- 80008f4:	b580      	push	{r7, lr}
- 80008f6:	af00      	add	r7, sp, #0
-	GPIO_WriteToOutputPin(GPIOD, GPIO_PIN_NO_14, 0);
- 80008f8:	2200      	movs	r2, #0
- 80008fa:	210e      	movs	r1, #14
- 80008fc:	4802      	ldr	r0, [pc, #8]	; (8000908 <igniton_off+0x14>)
- 80008fe:	f7ff feab 	bl	8000658 <GPIO_WriteToOutputPin>
-}
- 8000902:	bf00      	nop
- 8000904:	bd80      	pop	{r7, pc}
- 8000906:	bf00      	nop
- 8000908:	40020c00 	.word	0x40020c00
-
-0800090c <wiper_on>:
-int wiper_on(void)
-{
- 800090c:	b580      	push	{r7, lr}
- 800090e:	af00      	add	r7, sp, #0
-	GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_15);
- 8000910:	210f      	movs	r1, #15
- 8000912:	4826      	ldr	r0, [pc, #152]	; (80009ac <wiper_on+0xa0>)
- 8000914:	f7ff fec5 	bl	80006a2 <GPIO_ToggleOutputPin>
-	delay();
- 8000918:	f7ff ffa0 	bl	800085c <delay>
-	GPIO_WriteToOutputPin(GPIOD, GPIO_PIN_NO_15,0 );
- 800091c:	2200      	movs	r2, #0
- 800091e:	210f      	movs	r1, #15
- 8000920:	4822      	ldr	r0, [pc, #136]	; (80009ac <wiper_on+0xa0>)
- 8000922:	f7ff fe99 	bl	8000658 <GPIO_WriteToOutputPin>
-
-	GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_12);
- 8000926:	210c      	movs	r1, #12
- 8000928:	4820      	ldr	r0, [pc, #128]	; (80009ac <wiper_on+0xa0>)
- 800092a:	f7ff feba 	bl	80006a2 <GPIO_ToggleOutputPin>
-	delay();
- 800092e:	f7ff ff95 	bl	800085c <delay>
-	GPIO_WriteToOutputPin(GPIOD, GPIO_PIN_NO_12,0 );
- 8000932:	2200      	movs	r2, #0
- 8000934:	210c      	movs	r1, #12
- 8000936:	481d      	ldr	r0, [pc, #116]	; (80009ac <wiper_on+0xa0>)
- 8000938:	f7ff fe8e 	bl	8000658 <GPIO_WriteToOutputPin>
-
-	GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_13);
- 800093c:	210d      	movs	r1, #13
- 800093e:	481b      	ldr	r0, [pc, #108]	; (80009ac <wiper_on+0xa0>)
- 8000940:	f7ff feaf 	bl	80006a2 <GPIO_ToggleOutputPin>
-	delay();
- 8000944:	f7ff ff8a 	bl	800085c <delay>
-	GPIO_WriteToOutputPin(GPIOD, GPIO_PIN_NO_13,0 );
- 8000948:	2200      	movs	r2, #0
- 800094a:	210d      	movs	r1, #13
- 800094c:	4817      	ldr	r0, [pc, #92]	; (80009ac <wiper_on+0xa0>)
- 800094e:	f7ff fe83 	bl	8000658 <GPIO_WriteToOutputPin>
-
-
-	GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_13);
- 8000952:	210d      	movs	r1, #13
- 8000954:	4815      	ldr	r0, [pc, #84]	; (80009ac <wiper_on+0xa0>)
- 8000956:	f7ff fea4 	bl	80006a2 <GPIO_ToggleOutputPin>
-	delay();
- 800095a:	f7ff ff7f 	bl	800085c <delay>
-	GPIO_WriteToOutputPin(GPIOD, GPIO_PIN_NO_13,0 );
- 800095e:	2200      	movs	r2, #0
- 8000960:	210d      	movs	r1, #13
- 8000962:	4812      	ldr	r0, [pc, #72]	; (80009ac <wiper_on+0xa0>)
- 8000964:	f7ff fe78 	bl	8000658 <GPIO_WriteToOutputPin>
-
-	GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_12);
- 8000968:	210c      	movs	r1, #12
- 800096a:	4810      	ldr	r0, [pc, #64]	; (80009ac <wiper_on+0xa0>)
- 800096c:	f7ff fe99 	bl	80006a2 <GPIO_ToggleOutputPin>
-	delay();
- 8000970:	f7ff ff74 	bl	800085c <delay>
-	GPIO_WriteToOutputPin(GPIOD, GPIO_PIN_NO_12,0 );
- 8000974:	2200      	movs	r2, #0
- 8000976:	210c      	movs	r1, #12
- 8000978:	480c      	ldr	r0, [pc, #48]	; (80009ac <wiper_on+0xa0>)
- 800097a:	f7ff fe6d 	bl	8000658 <GPIO_WriteToOutputPin>
-
-	GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_15);
- 800097e:	210f      	movs	r1, #15
- 8000980:	480a      	ldr	r0, [pc, #40]	; (80009ac <wiper_on+0xa0>)
- 8000982:	f7ff fe8e 	bl	80006a2 <GPIO_ToggleOutputPin>
-	delay();
- 8000986:	f7ff ff69 	bl	800085c <delay>
-	GPIO_WriteToOutputPin(GPIOD, GPIO_PIN_NO_15,0 );
- 800098a:	2200      	movs	r2, #0
- 800098c:	210f      	movs	r1, #15
- 800098e:	4807      	ldr	r0, [pc, #28]	; (80009ac <wiper_on+0xa0>)
- 8000990:	f7ff fe62 	bl	8000658 <GPIO_WriteToOutputPin>
-
-	if (GPIO_ReadFromInputPin(GPIOA, GPIO_PIN_NO_0))
- 8000994:	2100      	movs	r1, #0
- 8000996:	4806      	ldr	r0, [pc, #24]	; (80009b0 <wiper_on+0xa4>)
- 8000998:	f7ff fe48 	bl	800062c <GPIO_ReadFromInputPin>
- 800099c:	4603      	mov	r3, r0
- 800099e:	2b00      	cmp	r3, #0
- 80009a0:	d001      	beq.n	80009a6 <wiper_on+0x9a>
-			return 1;
- 80009a2:	2301      	movs	r3, #1
- 80009a4:	e000      	b.n	80009a8 <wiper_on+0x9c>
-		else
-			return 0;
- 80009a6:	2300      	movs	r3, #0
-
-}
- 80009a8:	4618      	mov	r0, r3
- 80009aa:	bd80      	pop	{r7, pc}
- 80009ac:	40020c00 	.word	0x40020c00
- 80009b0:	40020000 	.word	0x40020000
-
-080009b4 <wiper_speed_changes_4_Hz>:
-
-int wiper_speed_changes_4_Hz(void)
-{
- 80009b4:	b580      	push	{r7, lr}
- 80009b6:	af00      	add	r7, sp, #0
-	GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_15);
- 80009b8:	210f      	movs	r1, #15
- 80009ba:	4826      	ldr	r0, [pc, #152]	; (8000a54 <wiper_speed_changes_4_Hz+0xa0>)
- 80009bc:	f7ff fe71 	bl	80006a2 <GPIO_ToggleOutputPin>
-	delay_4_hz();
- 80009c0:	f7ff ff62 	bl	8000888 <delay_4_hz>
-	GPIO_WriteToOutputPin(GPIOD, GPIO_PIN_NO_15,0 );
- 80009c4:	2200      	movs	r2, #0
- 80009c6:	210f      	movs	r1, #15
- 80009c8:	4822      	ldr	r0, [pc, #136]	; (8000a54 <wiper_speed_changes_4_Hz+0xa0>)
- 80009ca:	f7ff fe45 	bl	8000658 <GPIO_WriteToOutputPin>
-
-	GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_12);
- 80009ce:	210c      	movs	r1, #12
- 80009d0:	4820      	ldr	r0, [pc, #128]	; (8000a54 <wiper_speed_changes_4_Hz+0xa0>)
- 80009d2:	f7ff fe66 	bl	80006a2 <GPIO_ToggleOutputPin>
-	delay_4_hz();
- 80009d6:	f7ff ff57 	bl	8000888 <delay_4_hz>
-	GPIO_WriteToOutputPin(GPIOD, GPIO_PIN_NO_12,0 );
- 80009da:	2200      	movs	r2, #0
- 80009dc:	210c      	movs	r1, #12
- 80009de:	481d      	ldr	r0, [pc, #116]	; (8000a54 <wiper_speed_changes_4_Hz+0xa0>)
- 80009e0:	f7ff fe3a 	bl	8000658 <GPIO_WriteToOutputPin>
-
-	GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_13);
- 80009e4:	210d      	movs	r1, #13
- 80009e6:	481b      	ldr	r0, [pc, #108]	; (8000a54 <wiper_speed_changes_4_Hz+0xa0>)
- 80009e8:	f7ff fe5b 	bl	80006a2 <GPIO_ToggleOutputPin>
-	delay_4_hz();
- 80009ec:	f7ff ff4c 	bl	8000888 <delay_4_hz>
-	GPIO_WriteToOutputPin(GPIOD, GPIO_PIN_NO_13,0 );
- 80009f0:	2200      	movs	r2, #0
- 80009f2:	210d      	movs	r1, #13
- 80009f4:	4817      	ldr	r0, [pc, #92]	; (8000a54 <wiper_speed_changes_4_Hz+0xa0>)
- 80009f6:	f7ff fe2f 	bl	8000658 <GPIO_WriteToOutputPin>
-
-	GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_13);
- 80009fa:	210d      	movs	r1, #13
- 80009fc:	4815      	ldr	r0, [pc, #84]	; (8000a54 <wiper_speed_changes_4_Hz+0xa0>)
- 80009fe:	f7ff fe50 	bl	80006a2 <GPIO_ToggleOutputPin>
-	delay_4_hz();
- 8000a02:	f7ff ff41 	bl	8000888 <delay_4_hz>
-	GPIO_WriteToOutputPin(GPIOD, GPIO_PIN_NO_13,0 );
- 8000a06:	2200      	movs	r2, #0
- 8000a08:	210d      	movs	r1, #13
- 8000a0a:	4812      	ldr	r0, [pc, #72]	; (8000a54 <wiper_speed_changes_4_Hz+0xa0>)
- 8000a0c:	f7ff fe24 	bl	8000658 <GPIO_WriteToOutputPin>
-
-	GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_12);
- 8000a10:	210c      	movs	r1, #12
- 8000a12:	4810      	ldr	r0, [pc, #64]	; (8000a54 <wiper_speed_changes_4_Hz+0xa0>)
- 8000a14:	f7ff fe45 	bl	80006a2 <GPIO_ToggleOutputPin>
-	delay_4_hz();
- 8000a18:	f7ff ff36 	bl	8000888 <delay_4_hz>
-	GPIO_WriteToOutputPin(GPIOD, GPIO_PIN_NO_12,0 );
- 8000a1c:	2200      	movs	r2, #0
- 8000a1e:	210c      	movs	r1, #12
- 8000a20:	480c      	ldr	r0, [pc, #48]	; (8000a54 <wiper_speed_changes_4_Hz+0xa0>)
- 8000a22:	f7ff fe19 	bl	8000658 <GPIO_WriteToOutputPin>
-
-	GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_15);
- 8000a26:	210f      	movs	r1, #15
- 8000a28:	480a      	ldr	r0, [pc, #40]	; (8000a54 <wiper_speed_changes_4_Hz+0xa0>)
- 8000a2a:	f7ff fe3a 	bl	80006a2 <GPIO_ToggleOutputPin>
-	delay_4_hz();
- 8000a2e:	f7ff ff2b 	bl	8000888 <delay_4_hz>
-	GPIO_WriteToOutputPin(GPIOD, GPIO_PIN_NO_15,0 );
- 8000a32:	2200      	movs	r2, #0
- 8000a34:	210f      	movs	r1, #15
- 8000a36:	4807      	ldr	r0, [pc, #28]	; (8000a54 <wiper_speed_changes_4_Hz+0xa0>)
- 8000a38:	f7ff fe0e 	bl	8000658 <GPIO_WriteToOutputPin>
-
-	if (GPIO_ReadFromInputPin(GPIOA, GPIO_PIN_NO_0))
- 8000a3c:	2100      	movs	r1, #0
- 8000a3e:	4806      	ldr	r0, [pc, #24]	; (8000a58 <wiper_speed_changes_4_Hz+0xa4>)
- 8000a40:	f7ff fdf4 	bl	800062c <GPIO_ReadFromInputPin>
- 8000a44:	4603      	mov	r3, r0
- 8000a46:	2b00      	cmp	r3, #0
- 8000a48:	d001      	beq.n	8000a4e <wiper_speed_changes_4_Hz+0x9a>
-			return 1;
- 8000a4a:	2301      	movs	r3, #1
- 8000a4c:	e000      	b.n	8000a50 <wiper_speed_changes_4_Hz+0x9c>
-		else
-			return 0;
- 8000a4e:	2300      	movs	r3, #0
-}
- 8000a50:	4618      	mov	r0, r3
- 8000a52:	bd80      	pop	{r7, pc}
- 8000a54:	40020c00 	.word	0x40020c00
- 8000a58:	40020000 	.word	0x40020000
-
-08000a5c <wiper_speed_changes_8_Hz>:
-
-int wiper_speed_changes_8_Hz(void)
-{
- 8000a5c:	b580      	push	{r7, lr}
- 8000a5e:	af00      	add	r7, sp, #0
-	        GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_15);
- 8000a60:	210f      	movs	r1, #15
- 8000a62:	4826      	ldr	r0, [pc, #152]	; (8000afc <wiper_speed_changes_8_Hz+0xa0>)
- 8000a64:	f7ff fe1d 	bl	80006a2 <GPIO_ToggleOutputPin>
-			delay_8_hz();
- 8000a68:	f7ff ff24 	bl	80008b4 <delay_8_hz>
-			GPIO_WriteToOutputPin(GPIOD, GPIO_PIN_NO_15,0 );
- 8000a6c:	2200      	movs	r2, #0
- 8000a6e:	210f      	movs	r1, #15
- 8000a70:	4822      	ldr	r0, [pc, #136]	; (8000afc <wiper_speed_changes_8_Hz+0xa0>)
- 8000a72:	f7ff fdf1 	bl	8000658 <GPIO_WriteToOutputPin>
-
-			GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_12);
- 8000a76:	210c      	movs	r1, #12
- 8000a78:	4820      	ldr	r0, [pc, #128]	; (8000afc <wiper_speed_changes_8_Hz+0xa0>)
- 8000a7a:	f7ff fe12 	bl	80006a2 <GPIO_ToggleOutputPin>
-			delay_8_hz();
- 8000a7e:	f7ff ff19 	bl	80008b4 <delay_8_hz>
-			GPIO_WriteToOutputPin(GPIOD, GPIO_PIN_NO_12,0 );
- 8000a82:	2200      	movs	r2, #0
- 8000a84:	210c      	movs	r1, #12
- 8000a86:	481d      	ldr	r0, [pc, #116]	; (8000afc <wiper_speed_changes_8_Hz+0xa0>)
- 8000a88:	f7ff fde6 	bl	8000658 <GPIO_WriteToOutputPin>
-
-			GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_13);
- 8000a8c:	210d      	movs	r1, #13
- 8000a8e:	481b      	ldr	r0, [pc, #108]	; (8000afc <wiper_speed_changes_8_Hz+0xa0>)
- 8000a90:	f7ff fe07 	bl	80006a2 <GPIO_ToggleOutputPin>
-			delay_8_hz();
- 8000a94:	f7ff ff0e 	bl	80008b4 <delay_8_hz>
-			GPIO_WriteToOutputPin(GPIOD, GPIO_PIN_NO_13,0 );
- 8000a98:	2200      	movs	r2, #0
- 8000a9a:	210d      	movs	r1, #13
- 8000a9c:	4817      	ldr	r0, [pc, #92]	; (8000afc <wiper_speed_changes_8_Hz+0xa0>)
- 8000a9e:	f7ff fddb 	bl	8000658 <GPIO_WriteToOutputPin>
-
-			GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_13);
- 8000aa2:	210d      	movs	r1, #13
- 8000aa4:	4815      	ldr	r0, [pc, #84]	; (8000afc <wiper_speed_changes_8_Hz+0xa0>)
- 8000aa6:	f7ff fdfc 	bl	80006a2 <GPIO_ToggleOutputPin>
-			delay_8_hz();
- 8000aaa:	f7ff ff03 	bl	80008b4 <delay_8_hz>
-			GPIO_WriteToOutputPin(GPIOD, GPIO_PIN_NO_13,0 );
- 8000aae:	2200      	movs	r2, #0
- 8000ab0:	210d      	movs	r1, #13
- 8000ab2:	4812      	ldr	r0, [pc, #72]	; (8000afc <wiper_speed_changes_8_Hz+0xa0>)
- 8000ab4:	f7ff fdd0 	bl	8000658 <GPIO_WriteToOutputPin>
-
-			GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_12);
- 8000ab8:	210c      	movs	r1, #12
- 8000aba:	4810      	ldr	r0, [pc, #64]	; (8000afc <wiper_speed_changes_8_Hz+0xa0>)
- 8000abc:	f7ff fdf1 	bl	80006a2 <GPIO_ToggleOutputPin>
-			delay_8_hz();
- 8000ac0:	f7ff fef8 	bl	80008b4 <delay_8_hz>
-			GPIO_WriteToOutputPin(GPIOD, GPIO_PIN_NO_12,0 );
- 8000ac4:	2200      	movs	r2, #0
- 8000ac6:	210c      	movs	r1, #12
- 8000ac8:	480c      	ldr	r0, [pc, #48]	; (8000afc <wiper_speed_changes_8_Hz+0xa0>)
- 8000aca:	f7ff fdc5 	bl	8000658 <GPIO_WriteToOutputPin>
-
-			GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_15);
- 8000ace:	210f      	movs	r1, #15
- 8000ad0:	480a      	ldr	r0, [pc, #40]	; (8000afc <wiper_speed_changes_8_Hz+0xa0>)
- 8000ad2:	f7ff fde6 	bl	80006a2 <GPIO_ToggleOutputPin>
-			delay_8_hz();
- 8000ad6:	f7ff feed 	bl	80008b4 <delay_8_hz>
-			GPIO_WriteToOutputPin(GPIOD, GPIO_PIN_NO_15,0 );
- 8000ada:	2200      	movs	r2, #0
- 8000adc:	210f      	movs	r1, #15
- 8000ade:	4807      	ldr	r0, [pc, #28]	; (8000afc <wiper_speed_changes_8_Hz+0xa0>)
- 8000ae0:	f7ff fdba 	bl	8000658 <GPIO_WriteToOutputPin>
-
-			if (GPIO_ReadFromInputPin(GPIOA, GPIO_PIN_NO_0))
- 8000ae4:	2100      	movs	r1, #0
- 8000ae6:	4806      	ldr	r0, [pc, #24]	; (8000b00 <wiper_speed_changes_8_Hz+0xa4>)
- 8000ae8:	f7ff fda0 	bl	800062c <GPIO_ReadFromInputPin>
- 8000aec:	4603      	mov	r3, r0
- 8000aee:	2b00      	cmp	r3, #0
- 8000af0:	d001      	beq.n	8000af6 <wiper_speed_changes_8_Hz+0x9a>
-					return 1;
- 8000af2:	2301      	movs	r3, #1
- 8000af4:	e000      	b.n	8000af8 <wiper_speed_changes_8_Hz+0x9c>
-				else
-					return 0;
- 8000af6:	2300      	movs	r3, #0
-}
- 8000af8:	4618      	mov	r0, r3
- 8000afa:	bd80      	pop	{r7, pc}
- 8000afc:	40020c00 	.word	0x40020c00
- 8000b00:	40020000 	.word	0x40020000
-
-08000b04 <wiper_off>:
-
-
-void wiper_off(void)
-{
- 8000b04:	b580      	push	{r7, lr}
- 8000b06:	af00      	add	r7, sp, #0
-	        GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_13);
- 8000b08:	210d      	movs	r1, #13
- 8000b0a:	4811      	ldr	r0, [pc, #68]	; (8000b50 <wiper_off+0x4c>)
- 8000b0c:	f7ff fdc9 	bl	80006a2 <GPIO_ToggleOutputPin>
-			delay();
- 8000b10:	f7ff fea4 	bl	800085c <delay>
-			GPIO_WriteToOutputPin(GPIOD, GPIO_PIN_NO_13, 0);
- 8000b14:	2200      	movs	r2, #0
- 8000b16:	210d      	movs	r1, #13
- 8000b18:	480d      	ldr	r0, [pc, #52]	; (8000b50 <wiper_off+0x4c>)
- 8000b1a:	f7ff fd9d 	bl	8000658 <GPIO_WriteToOutputPin>
-
-			GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_12);
- 8000b1e:	210c      	movs	r1, #12
- 8000b20:	480b      	ldr	r0, [pc, #44]	; (8000b50 <wiper_off+0x4c>)
- 8000b22:	f7ff fdbe 	bl	80006a2 <GPIO_ToggleOutputPin>
-			delay();
- 8000b26:	f7ff fe99 	bl	800085c <delay>
-			GPIO_WriteToOutputPin(GPIOD, GPIO_PIN_NO_12, 0);
- 8000b2a:	2200      	movs	r2, #0
- 8000b2c:	210c      	movs	r1, #12
- 8000b2e:	4808      	ldr	r0, [pc, #32]	; (8000b50 <wiper_off+0x4c>)
- 8000b30:	f7ff fd92 	bl	8000658 <GPIO_WriteToOutputPin>
-
-			GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_15);
- 8000b34:	210f      	movs	r1, #15
- 8000b36:	4806      	ldr	r0, [pc, #24]	; (8000b50 <wiper_off+0x4c>)
- 8000b38:	f7ff fdb3 	bl	80006a2 <GPIO_ToggleOutputPin>
-			delay();
- 8000b3c:	f7ff fe8e 	bl	800085c <delay>
-			GPIO_WriteToOutputPin(GPIOD, GPIO_PIN_NO_15,0 );
- 8000b40:	2200      	movs	r2, #0
- 8000b42:	210f      	movs	r1, #15
- 8000b44:	4802      	ldr	r0, [pc, #8]	; (8000b50 <wiper_off+0x4c>)
- 8000b46:	f7ff fd87 	bl	8000658 <GPIO_WriteToOutputPin>
-
-}
- 8000b4a:	bf00      	nop
- 8000b4c:	bd80      	pop	{r7, pc}
- 8000b4e:	bf00      	nop
- 8000b50:	40020c00 	.word	0x40020c00
+ 8000b4a:	e7a7      	b.n	8000a9c <main+0xd8>
+ 8000b4c:	40020c00 	.word	0x40020c00
+ 8000b50:	40020000 	.word	0x40020000
 
 08000b54 <Reset_Handler>:
 
@@ -1623,7 +1625,7 @@ LoopFillZerobss:
  8000b82:	f000 f811 	bl	8000ba8 <__libc_init_array>
 /* Call the application's entry point.*/
   bl main
- 8000b86:	f7ff fda1 	bl	80006cc <main>
+ 8000b86:	f7ff ff1d 	bl	80009c4 <main>
 
 08000b8a <LoopForever>:
 

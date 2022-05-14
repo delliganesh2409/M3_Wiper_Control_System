@@ -3,7 +3,7 @@
 
 
 
-##Badges
+## Badges
 
 |cppcheck-action|Build CI Linux|Build CI - Windows|Analysis|
 |:--:|:--:|:--:|:--:|

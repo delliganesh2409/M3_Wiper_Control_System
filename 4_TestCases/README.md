@@ -7,9 +7,11 @@
 
 # Test Cases
 
-| ID        |  Description                                       | Test cases                 |  
+## High Level Test plan
+
+| ID        |  Description                                       | Expected output            |  
 | :-------- | :--------------------------------                  | :------------------------- | 
 | `1`       | `Dc motor`                                         | `Passed`                   |  
-|  `2`      | `potentiometer`                                           |   `Passed`                 |   
+|  `2`      | `potentiometer`                                    |   `Passed`                 |   
 |`3`        | `Oscope`                                           |	`Passed`	                |
 

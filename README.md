@@ -5,9 +5,9 @@
 
 ## Badges
 
-|cppcheck-action|Build CI Linux|Build CI - Windows|Analysis|Git Inspector|
-|:--:|:--:|:--:|:--:|:--:|
-|[![Cppcheck Analysis](https://github.com/delliganesh2409/M3_Wiper_Control_System/actions/workflows/c-cpp.yml/badge.svg)](https://github.com/delliganesh2409/M3_Wiper_Control_System/actions/workflows/c-cpp.yml)|[![Build-Linux](https://github.com/delliganesh2409/M3_Wiper_Control_System/actions/workflows/build%20on%20linux.yml/badge.svg)](https://github.com/delliganesh2409/M3_Wiper_Control_System/actions/workflows/build%20on%20linux.yml)|[![Build CI - Windows](https://github.com/delliganesh2409/M3_Wiper_Control_System/actions/workflows/Build%20on%20windows.yml/badge.svg)](https://github.com/delliganesh2409/M3_Wiper_Control_System/actions/workflows/Build%20on%20windows.yml)|[![Analysis](https://github.com/delliganesh2409/M3_Wiper_Control_System/actions/workflows/analysis.yml/badge.svg)](https://github.com/delliganesh2409/M3_Wiper_Control_System/actions/workflows/analysis.yml)|[![Contribution Check - Git Inspector](https://github.com/delliganesh2409/M3_Wiper_Control_System/actions/workflows/gitinspector.yml/badge.svg)](https://github.com/delliganesh2409/M3_Wiper_Control_System/actions/workflows/gitinspector.yml)|
+|cppcheck-action|Build CI Linux|Build CI - Windows|Analysis|Git Inspector|codiga|
+|:--:|:--:|:--:|:--:|:--:|:--:|
+|[![Cppcheck Analysis](https://github.com/delliganesh2409/M3_Wiper_Control_System/actions/workflows/c-cpp.yml/badge.svg)](https://github.com/delliganesh2409/M3_Wiper_Control_System/actions/workflows/c-cpp.yml)|[![Build-Linux](https://github.com/delliganesh2409/M3_Wiper_Control_System/actions/workflows/build%20on%20linux.yml/badge.svg)](https://github.com/delliganesh2409/M3_Wiper_Control_System/actions/workflows/build%20on%20linux.yml)|[![Build CI - Windows](https://github.com/delliganesh2409/M3_Wiper_Control_System/actions/workflows/Build%20on%20windows.yml/badge.svg)](https://github.com/delliganesh2409/M3_Wiper_Control_System/actions/workflows/Build%20on%20windows.yml)|[![Analysis](https://github.com/delliganesh2409/M3_Wiper_Control_System/actions/workflows/analysis.yml/badge.svg)](https://github.com/delliganesh2409/M3_Wiper_Control_System/actions/workflows/analysis.yml)|[![Contribution Check - Git Inspector](https://github.com/delliganesh2409/M3_Wiper_Control_System/actions/workflows/gitinspector.yml/badge.svg)](https://github.com/delliganesh2409/M3_Wiper_Control_System/actions/workflows/gitinspector.yml)|![Quality](https://api.codiga.io/project/33585/score/svg)
 
 
 
